@@ -1,0 +1,5 @@
+{"ts":1366763854045,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1366763923150,"patch":[[{"diffs":[[1,"<html>\n    \n    <body>\n        \n    </body>\n</html>"]],"start1":0,"start2":0,"length1":0,"length2":51}]],"length":51,"saved":false}
+{"ts":1366763925165,"patch":[[{"diffs":[[0,"<html>"],[-1,"\n"],[0,"    \n   "]],"start1":0,"start2":0,"length1":15,"length2":14}]],"length":50,"saved":false}
+{"ts":1366763959279,"patch":[[{"diffs":[[0,"<html>    \n"],[1,"    <head>\n        \n    </head>\n"],[0,"    <body>\n "]],"start1":0,"start2":0,"length1":23,"length2":55}]],"length":82,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1367899523772,"patch":[[{"diffs":[[0,"dy>\n        "],[1,"<p>User succesfully added</p>"],[0,"\n    </body>"]],"start1":50,"start2":50,"length1":24,"length2":53}]],"length":111,"saved":false}
