@@ -1,4 +1,11 @@
 var userCommands = require(GLOBAL.__approot+'/controllers/userCommands.js');
+
+function getViewData(user){
+    return {
+        data : {userName:user.firstname}          
+    };
+}
+
 exports.addUser=function(req, res){     
     
     res.render('users/adduser.html');
@@ -6,8 +13,8 @@ exports.addUser=function(req, res){
 
 exports.userAdded=function(req, res){
     var userObject={       
-        firstName:req.param('firstname'),
-        lastName:req.param('lastname'),
+        firstname:req.param('firstname'),
+        lastname:req.param('lastname'),
         address:req.param('address'),
         email:req.param('email'),
         password:req.param('password')   
@@ -18,11 +25,7 @@ exports.userAdded=function(req, res){
               res.render('users/adduser_error.html');
           }
           else{
-              res.locals({
-                    data : {
-                        userName:user.firstName   
-                    }                   
-                });
+              res.locals(getViewData(user));
               res.render('users/adduser_success.html');
           }
         }

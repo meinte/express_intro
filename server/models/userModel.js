@@ -16,34 +16,6 @@ var user_schema = new Schema(
     }
 );
 
-
-user_schema.statics.findByEmail=function(email,callback){    
-    User.findOne({ email:email}, function (err, doc){
-      // doc is a Document
-        if(err)return null;
-        console.log("1");
-    });
-  
-}
-
-user_schema.statics.loginIsValid = function(email,password){  
-    var user = User.findByEmail(email,
-        function(user){
-            if(!user)return false;
-        }
-    
-    
-    );
-    
-    
-    /*bcrypt.compare("B4c0/\/", hash, function(err, res) {
-       
-    });*/
-    return false;
-}
-
-var User = mongoose.model('User', user_schema);
-
 user_schema.pre('save',
     function(next){
         //encrypt password using bcrypt
@@ -63,5 +35,5 @@ user_schema.pre('save',
         );        
     }    
 );
-
+var User = mongoose.model('User', user_schema);
 module.exports = User;
