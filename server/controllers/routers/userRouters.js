@@ -33,13 +33,20 @@ exports.userAdded=function(req, res){
 }
 
 exports.login = function(req,res){
-    res.render('authentication/login.html');
+    res.render('users/login.html');
 }
 
-exports.handleLogin = function(req,res){      
-    var User = require(GLOBAL.__approot+'/models/userModel.js');
- 
+exports.handleLogin = function(req,res){    
     var email = req.param('login_email');
     var password = req.param('login_password');
-    User.loginIsValid(email,password);    
+    userCommands.loginUser( email,password,
+        function(user,error){
+           if(user){
+               
+           }else{
+               
+           }
+        }
+        
+    );  
 }

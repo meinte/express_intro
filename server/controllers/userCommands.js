@@ -4,11 +4,26 @@ exports.storeUser = function(userObject,callback){
     toAdd.save(callback);
 }
 
-exports.getUser=function(email,password,callback){
-     User.findOne({ email:email}, function (err, doc){
-       /*bcrypt.compare("B4c0/\/", hash, function(err, res) {
-           
-        });*/
+exports.loginUser=function(email,password,callback){
+     User.findOne({ email:email}, function (err, user){
+        if(err){
+            callback(null,err);
+            return;
+        }
+        if(!user){
+            callback(null,null);
+            return;
+        }
+        var bcrypt = require('bcrypt');
+        bcrypt.compare(password, user.password, function(err, res) {
+            if(err){
+                callback(null,err);
+                return;
+            }
+            if(res)callback(user,null)
+            else callback(null,null);
+            
+        });
     });
     
 }

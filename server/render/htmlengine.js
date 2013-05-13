@@ -16,10 +16,9 @@ function addMap(templateLocation,masterLocation){
 
 function parseHead($,$M,clientData){    
     if($M('head').length) 
-        $('head').prepend($M('head').html());
+        $('head').prepend($M('head').html());  
    
-    if(clientData)
-        $('script#client_data').prepend("\n\t\tvar clientData = "+JSON.stringify(clientData)+";");
+    $('script#client_data').prepend("\n\t\tvar clientData = "+JSON.stringify(clientData)+";");
 }
 
 function replaceDivContents($,$M){
@@ -45,13 +44,12 @@ function parseRaw(rawData,masterPages,clientData){
             parseHead($,$M,clientData);
             replaceDivContents($,$M);
         }
-    );
-    
-    
+    );    
     return $.html();
 }
 
-function renderData(template,masterPages,callback,clientData){   
+function renderData(template,masterPages,callback,clientData){
+    if(!clientData)clientData={};
     template = parseRaw(template,masterPages,clientData);
     if(callback)callback(null,template);
     else return template;
